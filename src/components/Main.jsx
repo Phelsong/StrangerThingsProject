@@ -4,7 +4,7 @@ import React from 'react'
 const Main = ()=>{
 
     return(
-    <div class="mainViewBox"> 
+    <div className="mainViewBox"> 
         <h2>hello</h2> 
         <span>Quick Description</span>
     <ul>

@@ -1,3 +1,4 @@
 export {default as Main} from './Main'
-import TopNavBar from '../TopNavBar'
-export {default as TopNavBar} from '../TopNavBar'
+export {default as TopNavBar} from './TopBar/TopNavBar'
+export {default as ControlBar} from './TopBar/ControlBar'
+export {default as Login} from './TopBar/Login'

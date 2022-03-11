@@ -1,10 +1,15 @@
 import React from "react"
 
-const ControlBar = ()=>{
+const ControlBar = () => {
 
-    return(
+    return (
         <div id="controlBar">
             ControlBar
         </div>
     )}
+
+
+
+
+
 export default ControlBar

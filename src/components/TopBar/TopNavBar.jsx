@@ -1,16 +1,21 @@
 import React from "react"
+import ControlBar from "./ControlBar"
+import Login from "./Login"
 
-
-const TopNavBar = ()=>{
+const TopNavBar = () => {
 
     return(
-        <header class="topBarContent">
+        <header className="topBarContent">
 
-            <div class="logo">
+            <div className="logo">
                 logo
             </div>
-            <ControlBar/>
-            <Login/>
+       
+            <ControlBar />
+            <Login />
         </header>
 )}
+
 export default TopNavBar
+export {default as ControlBar} from './ControlBar'
+export {default as Login} from './Login'
