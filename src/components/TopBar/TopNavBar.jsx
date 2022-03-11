@@ -1,6 +1,6 @@
 import React from "react"
 import ControlBar from "./ControlBar"
-import Login from "./Login"
+import Account from "./Account"
 
 const TopNavBar = () => {
 
@@ -12,10 +12,10 @@ const TopNavBar = () => {
             </div>
        
             <ControlBar />
-            <Login />
+            <Account />
         </header>
 )}
 
 export default TopNavBar
 export {default as ControlBar} from './ControlBar'
-export {default as Login} from './Login'
+export {default as Account} from './Account'

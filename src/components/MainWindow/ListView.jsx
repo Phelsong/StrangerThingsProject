@@ -1,11 +1,10 @@
 import React from 'react'
 
-
-const Main = ()=>{
+const ListView = ()=>{
 
     return(
-    <div className="mainViewBox"> 
-        <h2>hello</h2> 
+        <div className="listViewBox"> 
+        <h2>Listing</h2> 
         <span>Quick Description</span>
     <ul>
         <li>
@@ -20,7 +19,10 @@ const Main = ()=>{
     </ul>
     <button id="sendMessageButton">Send Message</button>
     </div>
-    )
-}
 
-export default Main
+
+    )}
+
+
+
+export default ListView

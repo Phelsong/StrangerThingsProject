@@ -9,11 +9,15 @@
 head {
     display: none;
 }
+body{
+    background-color: rgb(255, 248, 238);
+}
 
 #app {
     width: 100%;
     height: 100%;
     flex-flow: column nowrap;
+    
 }
 
 /* GrandDaddy End*/
@@ -27,63 +31,64 @@ head {
     justify-content: space-between;
     top: 0%;
     position: sticky;
+    background-color: rgb(255, 248, 238);
 }
 
 .topBar .logo {
     width: 10%;
-    height: 10%;
+    height: 100%;
 }
 
 .topBar #controlBar {
     width: 60%;
+    height: 100%;
 }
 
-.topBar #login {
-    width: 25%;
+.topBar #Account {
+    width: 35%;
+    height: 100%;
     flex-flow: column nowrap;
-}
+    align-items: center;   
 
-.topBar #login #userName {
-    width: 50%;
-    height: 5%;
 }
-
-.topBar #login #password {
-    width: 50%;
-    height: 5%;
+.topBar #Account label {
+    width: 100%;
 }
 
 /* Top Bar End */
 
 
+#MainView {
+    width: 75%;
+    height: 75%;
+}
 
-
-/* Main App Area Start */
-.mainViewBox {
+/* ListView Area Start */
+.listViewBox {
     width: 78%;
     height: 80%;
     flex-flow: column nowrap;
     border: 3px solid black;
 }
 
-.mainViewBox ul {
+.listViewBox ul {
     margin: 0;
     width: 50%;
     height: 50%;
     flex-flow: column nowrap;
 }
 
-.mainViewBox ul li {
+.listViewBox ul li {
     width: 50%;
     height: 50%;
 }
 
-.mainViewBox button {
+.listViewBox button {
     width: 30%;
     height: 10%;
 }
 
-/* Main App Area End*/
+/* ListView Area End*/
 
 
 
@@ -103,6 +108,33 @@ head {
     width: 100%;
     height: 20%;
     border: 2px solid blueviolet;
+    flex-flow: column nowrap;
+   
+}
+.sideBar .mainSearch {
+    width: 100%;
+    height: 30%;
+
+border: 3px solid black;
+flex-flow: column no wrap;
+align-items: center;
+
+}
+.sideBar .mainSearch label {
+    width: 50%;
+    height: 10%;
+}
+.sideBar .mainSearch input {
+    width: 100%;
+    height: 20%;
+    background-color: aliceblue;
+}
+.sideBar .mainSearch button {
+    width: 50%;
+    height: 10%;
+    text-align: center;
+    background-color: rgb(173, 172, 172);
+    border: 1px solid black;
 }
 
 .sideBar .descripBox {

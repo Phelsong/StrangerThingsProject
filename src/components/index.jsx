@@ -1,7 +1,3 @@
-export {default as Main} from './Main'
+export {default as Main} from './MainWindow/Main'
 export {default as TopNavBar} from './TopBar/TopNavBar'
-export {default as ControlBar} from './TopBar/ControlBar'
-export {default as Login} from './TopBar/Login'
 export {default as SideBar} from './SideBar/SideBar.jsx'
-export {default as SearchBar} from './SideBar/SearchBar'
-export {default as Description} from './SideBar/Description'

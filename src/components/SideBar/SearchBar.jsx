@@ -4,7 +4,9 @@ const SearchBar = () => {
 
     return (
 <div className="mainSearch">
-Search
+   <label htmlFor="site-search"> Search </label>
+   <input type="search" placeholder="Search Here..." id="sbSearchField" />
+   <button>Submit</button>
 </div>
     )}
 
