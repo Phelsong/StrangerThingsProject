@@ -5,3 +5,8 @@
 title{
     display: none;
 }
+
+.mainViewBox{
+    flex-flow: column nowrap;
+    border:1px solid black;
+}
