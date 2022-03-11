@@ -5,7 +5,7 @@ import Login from "./Login"
 const TopNavBar = () => {
 
     return(
-        <header className="topBarContent">
+        <header className="topBar">
 
             <div className="logo">
                 logo
