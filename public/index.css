@@ -1,0 +1,7 @@
+*{
+    display: flex;
+    box-sizing: border-box;
+}
+title{
+    display: none;
+}
