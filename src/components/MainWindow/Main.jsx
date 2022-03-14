@@ -23,23 +23,13 @@ export {default as ListView} from './ListView'
 export {default as InputForm} from './InputForm'
 
 
-// <DetailView />
 // <InputForm />
 // <Login /> 
 
 
 
 {/* <Fragment>
-<Route exact path="./components/MainWindow/ListView.jsx">
-<ListView />
-</Route>
 
-<Route exact path="./components/MainWindow/InputForm.jsx">
-<InputForm />
-</Route>
-<Route exact path="./components/MainWindow/Login.jsx">
-<Login />
-</Route>
 
 
 </Fragment> */}
