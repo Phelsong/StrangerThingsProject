@@ -10,21 +10,22 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 const Main = ()=>{
 return(
 
-    <ListView />
+        
+    <ListView />,
+    <InputForm />,
+    <Login />
+    
+    
+    )}
+    
+    
+    export default Main
+    export {default as Login} from './Login'
+    export {default as ListView} from './ListView'
+    export {default as InputForm} from './InputForm'
+    
+    
 
-
-      
-)}
-
-
-export default Main
-export {default as Login} from './Login'
-export {default as ListView} from './ListView'
-export {default as InputForm} from './InputForm'
-
-
-// <InputForm />
-// <Login /> 
 
 
 

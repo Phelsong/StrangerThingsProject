@@ -2,6 +2,7 @@ import React from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter as Router, Route, Link, Switch, NoMatch } from "react-router-dom";
 import { Main, TopNavBar, SideBar } from "./components";
+import { ListView, InputForm, Login } from "./components"
 
 
 const App = () => {
@@ -11,8 +12,8 @@ return (
     {/* <Link to="../MainWindow/ListView.jsx"> Logo </Link> */}
     <TopNavBar />
     <SideBar />
-    <Main />
-     {/* <Switch>
+      <Main /> 
+     <Switch>
       <Route exact path="./components/MainWindow/ListView.jsx">
         <ListView />
       </Route>
@@ -22,7 +23,7 @@ return (
       <Route exact path="./components/MainWindow/Login.jsx">
         <Login />
       </Route>
-    </Switch>  */}
+    </Switch> 
     
   </Router> 
 )

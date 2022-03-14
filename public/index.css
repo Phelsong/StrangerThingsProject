@@ -90,8 +90,30 @@ body{
 
 /* ListView Area End*/
 
+#Account {
+    width: 35%;
+    height: 100%;
+    flex-flow: column nowrap;
+    align-items: center;   
+}
 
-
+#userName {
+    width: 30%;
+    height: 30%;
+}
+#password {
+    width: 30%;
+    height: 30%;
+}
+#login{
+    width: 50%;
+    height: 50%;
+    flex-flow: column nowrap;
+}
+#login button {
+    width: 30%;
+    height: 30%;
+}
 /* SideBar App Area Start*/
 .sideBar {
     width: 22%;
