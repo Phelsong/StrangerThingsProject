@@ -8,11 +8,7 @@ const TopNavBar = () => {
 
     return(
         <header className="topBar">
-
-          
-           
-          
-       
+            <h2 className='logo'>Logo</h2>
             <ControlBar />
             <Account />
         </header>

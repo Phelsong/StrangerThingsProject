@@ -7,8 +7,8 @@ const ControlBar = () => {
     return (
         <div id="controlBar">
             ControlBar
-            <Link to="../MainWindow/InputForm.jsx"> Input </Link> 
-            <Link to="../MainWindow/ListView.jsx"> ListView </Link> 
+            <Link to="/InputForm"> Input </Link> 
+            <Link to="/ListView"> ListView </Link> 
         </div>
     )}
 

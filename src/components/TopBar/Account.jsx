@@ -5,7 +5,7 @@ const Account = ()=>{
 
     return(
         <div id='Account'> 
-        <Link to="../MainWindow/Login.jsx"> Login/Account </Link> 
+        <Link to="/Login"> Login/Account </Link> 
         </div>
     )}
 export default Account
