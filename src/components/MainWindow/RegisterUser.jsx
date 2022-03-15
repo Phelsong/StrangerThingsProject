@@ -13,7 +13,7 @@ const RegisterUser = () => {
           try{
             const result = await registerNewUser(inputUser, inputPass);
             localStorage.setItem('token', result.data.token)
-            const myToken = localStorage.getItem('token')
+            setToken(result.data.token)
             console.log(myToken)
           } catch {
             console.error(e)

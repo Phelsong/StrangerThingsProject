@@ -21,15 +21,15 @@ const [token, setToken] = useState('')
 
 
   return (
- 
+    
     <Router>
      <TopNavBar />
       <SideBar /> 
      <Switch>
      <Route path="/InputForm" component={InputForm} />
      <Route path="/ListView" component={ListView} />
-     <Route path="/Login" component={Login} />
-     <Route path="/RegisterUser" component={RegisterUser} /> 
+     <Route path="/Login" component={() => <Login setToken={setToken} />} />
+     <Route path="/RegisterUser" component={() => <RegisterUser setToken={setToken}/>} /> 
     </Switch>
 
   

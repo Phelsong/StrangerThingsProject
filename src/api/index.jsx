@@ -24,7 +24,6 @@ body: JSON.stringify({
   }})
 })
 const result = await response.json() 
-console.log(result)
 return result 
 
 
@@ -32,7 +31,7 @@ return result
 }
 
 export async function userLogin (user, password) {
-  console.log(user, password, 'user')
+ 
 const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohortName}/users/login`, {
   method: "POST",
   headers: {
@@ -46,11 +45,18 @@ body: JSON.stringify({
   }})
 })
 const result = await response.json() 
-console.log(result.data.token)
 return result 
 }
 
 
 
+export async function userMe (MyToken) {
+  
+const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohortName}/users/me`, {
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${MyToken}`
+},})
+result = await response.json()
+}
 
-// 'Authorization':''

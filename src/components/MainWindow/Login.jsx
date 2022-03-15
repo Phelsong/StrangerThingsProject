@@ -21,7 +21,7 @@ const Login = () => {
           try{
           userLogin (inputUser, inputPass);
           localStorage.setItem('token', result.data.token)
-          const myToken = localStorage.getItem('token')
+          setToken(result.data.token)
           } catch {console.error(e)}
         }}
       >
