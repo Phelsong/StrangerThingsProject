@@ -7,13 +7,20 @@ import {
   Switch,
   NoMatch,
 } from "react-router-dom";
-import { Main, TopNavBar, SideBar } from "./components";
-import { ListView, InputForm, Login, ControlBar, Account } from "./components";
-import { useState } from "react/cjs/react.production.min";
+import { Main, TopNavBar, SideBar, ListView, InputForm, Login, ControlBar, Account } from "./components";
+import { index } from "./api";
+import { useState } from "react";
 
 
 // const [mainApp, setMainApp] = useState ('') 
 const App = () => {
+const [userName, setUserName] = useState('')
+const [password, setPassword] = useState('')
+
+
+
+
+
   return (
  
     <Router>
@@ -23,7 +30,7 @@ const App = () => {
      <Switch>
      <Route path="/InputForm" component={InputForm} />
      <Route path="/ListView"component={ListView} />
-     <Route path="/Login" component={Login} />
+     <Route path="/Login" component={Login} /> 
     </Switch>
 
   
@@ -34,3 +41,6 @@ const App = () => {
 };
 
 ReactDom.render(<App />, document.getElementById("app"));
+
+
+// () => <Login setUserName={setUserName} setPassword={setPassword} />
