@@ -5,14 +5,12 @@ import { getAllPosts } from '../../api'
 
 
 const ListView = ()=>{
+    console.log(allPosts)
    async function content(){
         const contentPost = await getAllPosts()
             contentPost.data.posts.map((post)=> {
                 console.log(post)
-                return (
-                    setAllPosts(post) 
-                    
-                    )
+                setAllPosts(post) 
                 }) 
             }
             content()
