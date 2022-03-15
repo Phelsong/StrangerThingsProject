@@ -16,11 +16,12 @@ const RegisterUser = () => {
             const myToken = localStorage.getItem('token')
             console.log(myToken)
           } catch {
-            console.error(error)
+            console.error(e)
           }
         }}
       >
         <label htmlFor="SignUp"> SignUp </label>
+       
         <fieldset className="register">
           <input
             type="text"

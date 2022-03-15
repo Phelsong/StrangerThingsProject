@@ -1,5 +1,12 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom";
 import { userLogin } from "../../api";
+
+//test login 
+// testJ
+// 1234
+
+
 
 const Login = () => {
   const [inputUser, setInputUser] = useState("");
@@ -11,10 +18,15 @@ const Login = () => {
         className="loginForm"
         onSubmit={(e) => {
           e.preventDefault();
+          try{
           userLogin (inputUser, inputPass);
+          localStorage.setItem('token', result.data.token)
+          const myToken = localStorage.getItem('token')
+          } catch {console.error(e)}
         }}
       >
         <label htmlFor="Login"> Log-In </label>
+        <Link to="/RegisterUser"> Register as a User </Link>
         <fieldset className="login">
           <input
             type="text"

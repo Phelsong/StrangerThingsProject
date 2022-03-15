@@ -151,6 +151,10 @@ body{
     flex-flow: column nowrap;
     align-items: center;
 }
+.loginForm a {
+    width: 20%;
+    height: 7%;
+}
 .loginForm label {
     width: 10%;
     height: 10%;
