@@ -7,15 +7,14 @@ import {
   Switch,
   NoMatch,
 } from "react-router-dom";
-import { Main, TopNavBar, SideBar, ListView, InputForm, Login, ControlBar, Account } from "./components";
+import { Main, TopNavBar, SideBar, ListView, InputForm, RegisterUser, Login, ControlBar, Account } from "./components";
 import { index } from "./api";
 import { useState } from "react";
 
 
 // const [mainApp, setMainApp] = useState ('') 
 const App = () => {
-const [userName, setUserName] = useState('')
-const [password, setPassword] = useState('')
+const [token, setToken] = useState('')
 
 
 
@@ -26,11 +25,11 @@ const [password, setPassword] = useState('')
     <Router>
      <TopNavBar />
       <SideBar /> 
-    
      <Switch>
      <Route path="/InputForm" component={InputForm} />
-     <Route path="/ListView"component={ListView} />
-     <Route path="/Login" component={Login} /> 
+     <Route path="/ListView" component={ListView} />
+     <Route path="/Login" component={Login} />
+     <Route path="/RegisterUser" component={RegisterUser} /> 
     </Switch>
 
   

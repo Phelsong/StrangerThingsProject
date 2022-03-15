@@ -1,21 +1,27 @@
 import React, { useState } from "react";
-import { userLogin } from "../../api";
+import { registerNewUser } from "../../api";
 
-const Login = () => {
+const RegisterUser = () => {
   const [inputUser, setInputUser] = useState("");
   const [inputPass, setInputPass] = useState("");
 
   return (
-  
       <form
-        className="loginForm"
-        onSubmit={(e) => {
+        className="registerForm"
+        onSubmit={async (e) => {
           e.preventDefault();
-          userLogin (inputUser, inputPass);
+          try{
+            const result = await registerNewUser(inputUser, inputPass);
+            localStorage.setItem('token', result.data.token)
+            const myToken = localStorage.getItem('token')
+            console.log(myToken)
+          } catch {
+            console.error(error)
+          }
         }}
       >
-        <label htmlFor="Login"> Log-In </label>
-        <fieldset className="login">
+        <label htmlFor="SignUp"> SignUp </label>
+        <fieldset className="register">
           <input
             type="text"
             placeholder="Username..."
@@ -23,7 +29,7 @@ const Login = () => {
             onChange={(e) => setInputUser(e.target.value)}
           />
         </fieldset>
-        <fieldset className="login">
+        <fieldset className="register">
           <input
             type="password"
             placeholder="Password Here..."
@@ -33,8 +39,7 @@ const Login = () => {
         </fieldset>
         <button type="submit">Submit</button>
       </form>
-
   );
 };
 
-export default Login;
+export default RegisterUser;

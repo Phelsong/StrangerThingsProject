@@ -11,8 +11,7 @@ export async function fetchQueryResultsFromURL() {
   }
 }
 
-export async function registerUser (user, password) {
-  console.log(user, password, 'user')
+export async function registerNewUser (user, password) {
 const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohortName}/users/register`, {
   method: "POST",
   headers: {
@@ -32,3 +31,26 @@ return result
 
 }
 
+export async function userLogin (user, password) {
+  console.log(user, password, 'user')
+const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohortName}/users/login`, {
+  method: "POST",
+  headers: {
+    'Content-Type': 'application/json',
+   
+  },
+body: JSON.stringify({
+  user: {
+    username: `${user}`,
+    password: `${password}`
+  }})
+})
+const result = await response.json() 
+console.log(result.data.token)
+return result 
+}
+
+
+
+
+// 'Authorization':''

@@ -1,5 +1,4 @@
 import React from "react"
-import Login from "../MainWindow/Login"
 import { BrowserRouter as Router, Route, Link, Switch, NoMatch } from "react-router-dom";
 const Account = ()=>{
 
