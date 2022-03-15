@@ -1,16 +1,11 @@
 const cohortName = "2202-ftb-et-web-ft";
 export const ApiURl = `https://strangers-things.herokuapp.com/api/${cohortName}`;
 
-export async function fetchQueryResultsFromURL() {
-  try {
-    const response = await fetch(ApiURl);
-    const data = await response.json();
+export async function getAllPosts () {
+  const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohortName}/posts`)
+    const data = await response.json()
     return data;
-  } catch (error) {
-    throw error;
-  }
-}
-
+  } 
 export async function registerNewUser (user, password) {
 const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohortName}/users/register`, {
   method: "POST",

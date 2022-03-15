@@ -1,16 +1,30 @@
 import React from 'react'
+import { useEffect } from 'react'
+import { getAllPosts } from '../../api'
+
+
 
 const ListView = ()=>{
-
-    return(
-        <div className="listViewBox"> 
-        <h2>Listing</h2> 
-        <span>Quick Description</span>
-    <ul>
-        <li>
+   async function content(){
+        const contentPost = await getAllPosts()
+            contentPost.data.posts.map((post)=> {
+                console.log(post)
+                return (
+                    setAllPosts(post) 
+                    
+                    )
+                }) 
+            }
+            content()
+                return(
+                    <div className="listViewBox"> 
+            <h2>Listing</h2> 
+            <span>Quick Description</span>
+            <ul>
+            <li>
             <h5>Price</h5>temp
-        </li>
-        <li>
+            </li>
+            <li>
             <h5>Seller</h5>temp
         </li>
         <li>

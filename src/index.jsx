@@ -15,7 +15,7 @@ import { useState } from "react";
 // const [mainApp, setMainApp] = useState ('') 
 const App = () => {
 const [token, setToken] = useState('')
-
+const [allPosts, setAllPosts]  = useState(null)
 
 
 
@@ -27,7 +27,7 @@ const [token, setToken] = useState('')
       <SideBar /> 
      <Switch>
      <Route path="/InputForm" component={InputForm} />
-     <Route path="/ListView" component={ListView} />
+     <Route path="/ListView" component={()=> <ListView  allPosts={allPosts} setAllPosts={setAllPosts}/>} />
      <Route path="/Login" component={() => <Login setToken={setToken} />} />
      <Route path="/RegisterUser" component={() => <RegisterUser setToken={setToken}/>} /> 
     </Switch>
