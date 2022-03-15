@@ -1,36 +1,40 @@
 import React from "react";
 import { useState } from "react";
-import { useEffect } from "react/cjs/react.production.min";
+
 import { registerUser } from "../../api";
 
 const Login = (props) => {
 
-  const [inputUser, getInputUser] = useState = ('')
-  const [inputPass, getInputPass] = useState = ('')
+  const [inputUser, setInputUser] = useState = ('')
+  const [inputPass, setInputPass] = useState = ('')
 
-  useEffect (() => {
+//   useEffect (() => {
 
     
-    try {
-     registerUser(inputUser, inputPass)
-    } catch (error) {
-      console.error(error)
-    }
-},[])
+//     try {
+//      registerUser(inputUser, inputPass)
+//     } catch (error) {
+//       console.error(error)
+//     }
+// },[])
   return (
-    <form className="registerForm" 
+    <div>
+    <form className="registerForm"
+    onSubmit={(event) => {
+      event.preventDefault()
+      registerUser(inputUser, inputPass)
+    }}
     >
-        event.preventDefault()
-        console.log (inputUser, inputPass, 'login ')
         <label htmlFor="login"> Login </label>
          <fieldset className="register">
-        <input type="text" placeholder="Username..."  value={inputUser}  id="userName" onSubmit={(event) => { getInputUser(event.target.value)}}/>
+        <input type="text" placeholder="Username..." id="userName" onChange={(event) => { setInputUser(event.target.value)}}/>
         </fieldset>
         <fieldset className="register">
-        <input type="password" placeholder="Password Here..."  value={inputPass} id="password" onSubmit={(event) => getInputPass(event.target.value)} />
+        <input type="password" placeholder="Password Here..." id="password" onChange={(event) => setInputPass(event.target.value)} />
         </fieldset>
         <button type= "submit">Submit</button>
       </form>
+      </div>
   );
 };
 

@@ -12,6 +12,7 @@ export async function fetchQueryResultsFromURL() {
 }
 
 export async function registerUser (user, password) {
+  console.log(user, password, 'user')
 const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohortName}/users/register`, {
   method: "POST",
   headers: {
