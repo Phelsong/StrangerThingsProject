@@ -19,7 +19,6 @@ const InputForm = ({token})=>{
           try{
             localStorage.getItem('token')
              createPost(token, post )
-            
           
           } catch {console.error(e)}
         }}>
