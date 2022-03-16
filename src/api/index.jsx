@@ -5,7 +5,8 @@ export async function getAllPosts () {
   const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohortName}/posts`)
     const data = await response.json()
     return data;
-  } 
+} 
+
 export async function registerNewUser (user, password) {
 const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohortName}/users/register`, {
   method: "POST",
@@ -20,9 +21,6 @@ body: JSON.stringify({
 })
 const result = await response.json() 
 return result 
-
-
-
 }
 
 export async function userLogin (user, password) {
@@ -54,4 +52,3 @@ const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohor
 },})
 result = await response.json()
 }
-

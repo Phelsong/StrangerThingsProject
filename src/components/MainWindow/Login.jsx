@@ -8,9 +8,11 @@ import { userLogin } from "../../api";
 
 
 
-const Login = () => {
+const Login = (props) => {
+  console.log(props)
   const [inputUser, setInputUser] = useState("");
   const [inputPass, setInputPass] = useState("");
+ 
 
   return (
   

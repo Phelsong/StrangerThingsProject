@@ -1,45 +1,31 @@
 import React from "react";
 import ReactDom from "react-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-  NoMatch,
-} from "react-router-dom";
-import { Main, TopNavBar, SideBar, ListView, InputForm, RegisterUser, Login, ControlBar, Account } from "./components";
-import { index } from "./api";
-import { useState } from "react";
+  TopNavBar,
+  SideBar,
+  ListView,
+  InputForm,
+  RegisterUser,
+  Login,
+} from "./components";
 
-
-// const [mainApp, setMainApp] = useState ('') 
 const App = () => {
-const [token, setToken] = useState('')
-const [allPosts, setAllPosts]  = useState(null)
-
-
-
-
   return (
-    
     <Router>
-     <TopNavBar />
-      <SideBar /> 
-     <Switch>
-     <Route path="/InputForm" component={InputForm} />
-     <Route path="/ListView" component={()=> <ListView  allPosts={allPosts} setAllPosts={setAllPosts}/>} />
-     <Route path="/Login" component={() => <Login setToken={setToken} />} />
-     <Route path="/RegisterUser" component={() => <RegisterUser setToken={setToken}/>} /> 
-    </Switch>
+      <TopNavBar />
+      <SideBar />
 
-  
-
-      </Router>
-
+      <Routes>
+        <Route path="/InputForm" element={<InputForm />} />
+        <Route path="/ListView" element={<ListView />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/RegisterUser" element={<RegisterUser />} />
+      </Routes>
+    </Router>
   );
 };
 
 ReactDom.render(<App />, document.getElementById("app"));
 
-
-// () => <Login setUserName={setUserName} setPassword={setPassword} />
+//

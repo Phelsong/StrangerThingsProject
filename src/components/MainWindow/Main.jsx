@@ -4,18 +4,29 @@ import ListView from "./ListView";
 import InputForm from "./InputForm";
 import Login from "./Login";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { getAllPosts } from "../../api";
 
 const Main = () => {
+const [token, setToken] = useState('')
+const [allPosts, setAllPosts]  = useState(null)
+
+
   let urlRef = window.location.href.split("/").pop()
-  useEffect(() => { }, [])
   const Key = {
-        Login: <Login />,
+     Login: <Login setToken={setToken}/>,
       InputForm: < InputForm />,
-      RegisterUser: <RegisterUser /> ,
-      ListView:  < ListView />,
+      RegisterUser: <RegisterUser setToken={setToken} /> ,
+      ListView:  < ListView allPosts={allPosts} setAllPosts={setAllPosts}/>,
       
   }
+  useEffect(async () => {
+    const contentPost = await getAllPosts();
+    contentPost.data.posts.map((post) => {setAllPosts(post)})
+    
+   }, [allPosts] );  
+  
     return (
+        
         <div className="Main">
             {/* doesnt do anything, revist later */}
         {urlRef ? Key[urlRef]: Key[urlRef]}
@@ -31,4 +42,4 @@ export { default as RegisterUser} from "./RegisterUser";
 export { default as ListView } from "./ListView";
 export { default as InputForm } from "./InputForm";
 export { default as Login } from "./Login";
-// ;
+// ; useEffect(() => { }, [])
