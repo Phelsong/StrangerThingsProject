@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { registerNewUser } from "../../api";
 
-const RegisterUser = () => {
+const RegisterUser = ({setToken}) => {
   const [inputUser, setInputUser] = useState("");
   const [inputPass, setInputPass] = useState("");
 
   return (
       <form
         className="registerForm"
-        onSubmit={async (e) => {
+        onSubmit={(e) => {
           e.preventDefault();
           try{
-            const result = await registerNewUser(inputUser, inputPass);
+            const result = registerNewUser(inputUser, inputPass);
             localStorage.setItem('token', result.data.token)
             setToken(result.data.token)
             console.log(myToken)

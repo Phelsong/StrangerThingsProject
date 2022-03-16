@@ -8,8 +8,8 @@ import { userLogin } from "../../api";
 
 
 
-const Login = (props) => {
-  console.log(props)
+const Login = ({setToken}) => {
+
   const [inputUser, setInputUser] = useState("");
   const [inputPass, setInputPass] = useState("");
  
@@ -18,10 +18,10 @@ const Login = (props) => {
   
       <form
         className="loginForm"
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
           try{
-          userLogin (inputUser, inputPass);
+          const result = await userLogin (inputUser, inputPass);
           localStorage.setItem('token', result.data.token)
           setToken(result.data.token)
           } catch {console.error(e)}

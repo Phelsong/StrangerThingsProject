@@ -1,18 +1,30 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { getAllPosts } from "../../api";
+import { deletePost } from "../../api";
 //
-const ListView = ({ allPosts, setAllPosts }) => {
+const ListView = ({ token, displayPosts, allPosts, setAllPosts, ME }) => {
 
+  const handleDelete = async (token, postIdentifier) => {
+
+    const [postId, authorId] = postIdentifier.split(',')
+ 
+      if (authorId !== ME._id ){
+        console.error('not your post')
+      } else {
+       const deletedPost = await deletePost(token, postId)
+       const filteredPosts = ''
+       setAllPosts(allPosts.filter((post) => post._id !== postId))
+      }
+      }
 
   return (
     <div className="listViewBox">
 
 
 
-      {allPosts && allPosts.length? allPosts.map((post) => {
-            const { title, price, description, location, willDeliver } = post;
-
+      {displayPosts && displayPosts.length? displayPosts.map((post) => {
+            const { title, price, description, location, willDeliver, author } = post;
+            const postIdentifier = [post._id, author._id, '[0]=postid :: [1]=authorid']
             return (
               <div className="singlepost" key={post._id}>
                 <h2>{title}</h2>
@@ -32,6 +44,7 @@ const ListView = ({ allPosts, setAllPosts }) => {
                   </li>
                 </ul>
                 <button id="sendMessageButton">Send Message</button>
+                <button id="deleteButton" value={postIdentifier} onClick={(e)=> handleDelete(token, e.target.value) }>delete</button>
               </div>
             );
           })
