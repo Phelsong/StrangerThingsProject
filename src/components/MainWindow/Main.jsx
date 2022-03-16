@@ -19,7 +19,7 @@ useEffect(async () => {
   let urlRef = window.location.href.split("/").pop()
   const Key = {
      Login: <Login setToken={setToken}/>,
-      InputForm: < InputForm />,
+      InputForm: < InputForm token={token}/>,
       RegisterUser: <RegisterUser setToken={setToken} /> ,
       ListView:  < ListView allPosts={allPosts} setAllPosts={setAllPosts}/>,
       

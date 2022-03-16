@@ -52,3 +52,19 @@ const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohor
 },})
 result = await response.json()
 }
+
+export async function createPost (MyToken, {post}) {
+
+const response = fetch(`https://strangers-things.herokuapp.com/api/${cohortName}/posts`, {
+  method: "POST",
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${MyToken}`
+  },
+  body: JSON.stringify(
+     post
+  )
+  })
+  const result = await response.json()
+  return result 
+}
