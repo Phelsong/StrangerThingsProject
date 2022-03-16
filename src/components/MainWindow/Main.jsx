@@ -10,6 +10,11 @@ const Main = () => {
 const [token, setToken] = useState('')
 const [allPosts, setAllPosts]  = useState(null)
 
+useEffect(async () => {
+    const contentPost = await getAllPosts();
+    setAllPosts(contentPost.data.posts)
+   }, [] );  
+
 
   let urlRef = window.location.href.split("/").pop()
   const Key = {
@@ -19,12 +24,7 @@ const [allPosts, setAllPosts]  = useState(null)
       ListView:  < ListView allPosts={allPosts} setAllPosts={setAllPosts}/>,
       
   }
-  useEffect(async () => {
-    const contentPost = await getAllPosts();
-    contentPost.data.posts.map((post) => {setAllPosts(post)})
-    
-   }, [allPosts] );  
-  
+ 
     return (
         
         <div className="Main">

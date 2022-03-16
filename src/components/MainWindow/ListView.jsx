@@ -1,36 +1,43 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { getAllPosts } from "../../api";
-// 
-const ListView = ({allPosts, setAllPosts}) => {
-  
-    // useEffect(async () => {
-    //   const contentPost = await getAllPosts();
-    //   contentPost.data.posts.map((post) => {setAllPosts(post)})
-  
-    //  }, [] );  
+//
+const ListView = ({ allPosts, setAllPosts }) => {
 
-        
-//  const {price, seller, description,location} = allPosts
-    
-    
-  
+
   return (
     <div className="listViewBox">
-      {/* <h2>Listing</h2>
-      <span>{description}</span>
-      <ul>
-        <li>
-          <h5>{price}</h5>temp
-        </li>
-        <li>
-          <h5>{seller}</h5>temp
-        </li>
-        <li>
-          <h5>{location}</h5>temp
-        </li>
-      </ul> */}
-      <button id="sendMessageButton">Send Message</button>
+
+
+
+      {allPosts && allPosts.length? allPosts.map((post) => {
+            const { title, price, description, location, willDeliver } = post;
+
+            return (
+              <div className="singlepost" key={post._id}>
+                <h2>{title}</h2>
+                <span>{description}</span>
+                <ul>
+                  <li>
+                    <h5>Price: {price}</h5>
+                  </li>
+                  <li>
+                    <h5>Seller: {post.author.username}</h5>
+                  </li>
+                  <li>
+                    <h5>Location: {location}</h5>
+                    </li>
+                  <li>
+                    <h5>Delivery: {willDeliver.toString()}</h5>
+                  </li>
+                </ul>
+                <button id="sendMessageButton">Send Message</button>
+              </div>
+            );
+          })
+        : null}
+
+     
     </div>
   );
 };

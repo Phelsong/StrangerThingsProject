@@ -66,6 +66,7 @@ body{
     width: 90%;
     height: 75%;
     position: fixed;
+    flex-flow: column nowrap;
 }
 #SubmitForm {
     width: 50%;
@@ -83,6 +84,8 @@ body{
 
 
 
+
+
 /* main body end */
 
 /* ListView Area Start */
@@ -91,21 +94,34 @@ body{
     height: 80%;
     flex-flow: column nowrap;
     border: 3px solid black;
+    overflow-y: scroll;
+}
+.singlepost {
+    width: 99%;
+    height: 50%;
+    flex-flow: row nowrap;
+    border: 3px solid rgb(190, 148, 148)
+}
+.singlepost h2 {
+    height:10%
+}
+.singlepost span {
+    height:10%;
 }
 
-.listViewBox ul {
+.singlepost ul {
     margin: 0;
-    width: 50%;
-    height: 50%;
+    width: 25%;
+    height: 100%;
     flex-flow: column nowrap;
 }
 
-.listViewBox ul li {
-    width: 50%;
-    height: 50%;
+.singlepost ul li {
+    width: 80%;
+    height: 20%;
 }
 
-.listViewBox button {
+.singlepost button {
     width: 30%;
     height: 10%;
 }
