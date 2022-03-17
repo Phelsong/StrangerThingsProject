@@ -1,16 +1,17 @@
 import React from "react"
-import Description from "./Description"
+import MyMessages from "./MyMessages"
 import SearchBar from "./SearchBar"
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 
 
-const SideBar = () => {
+const SideBar = ({ME}) => {
 
     return (
 <div className="sideBar">
 <SearchBar />
-<Description />
+{ME ? <MyMessages ME={ME} /> : null}
+
 
 
 
@@ -22,5 +23,3 @@ const SideBar = () => {
 
 
 export default SideBar
-export {default as SearchBar} from './SearchBar'
-export {default as Description} from './Description'

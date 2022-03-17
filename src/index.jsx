@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
@@ -7,21 +7,18 @@ import {
   ListView,
   InputForm,
   RegisterUser,
-  Login,
+  Login, Main
 } from "./components";
 
 const App = () => {
+  const [ME, setMe] = useState(null)
+
   return (
     <Router>
-      <TopNavBar />
-      <SideBar />
-
-      <Routes>
-        <Route path="/InputForm" element={<InputForm />} />
-        <Route path="/ListView" element={<ListView />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/RegisterUser" element={<RegisterUser />} />
-      </Routes>
+      <TopNavBar ME={ME} />
+      <SideBar ME={ME} />
+      <Main ME={ME} setMe={setMe} />
+      
     </Router>
   );
 };

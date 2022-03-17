@@ -1,9 +1,12 @@
 import React from "react";
+import{Link} from "react-router-dom"
 import { useState, useEffect } from "react";
 import { deletePost } from "../../api";
+import {Button} from "react"
 //
-const ListView = ({ token, displayPosts, allPosts, setAllPosts, ME }) => {
+const ListView = ({ token, displayPosts, allPosts, setAllPosts, ME, setThisPost, setToEdit }) => {
 
+  
   const handleDelete = async (token, postIdentifier) => {
 
     const [postId, authorId] = postIdentifier.split(',')
@@ -16,13 +19,16 @@ const ListView = ({ token, displayPosts, allPosts, setAllPosts, ME }) => {
        setAllPosts(allPosts.filter((post) => post._id !== postId))
       }
       }
-
+    const sendMessageID = async (post) => {
+      setThisPost(post)
+      console.log(post, "thisPost")
+    }
   return (
     <div className="listViewBox">
 
 
 
-      {displayPosts && displayPosts.length? displayPosts.map((post) => {
+      {displayPosts && displayPosts.length ? displayPosts.map((post) => {
             const { title, price, description, location, willDeliver, author } = post;
             const postIdentifier = [post._id, author._id, '[0]=postid :: [1]=authorid']
             return (
@@ -43,8 +49,12 @@ const ListView = ({ token, displayPosts, allPosts, setAllPosts, ME }) => {
                     <h5>Delivery: {willDeliver.toString()}</h5>
                   </li>
                 </ul>
-                <button id="sendMessageButton">Send Message</button>
-                <button id="deleteButton" value={postIdentifier} onClick={(e)=> handleDelete(token, e.target.value) }>delete</button>
+                {ME ? <Link to="/MessageForm" onClick={() => sendMessageID(post._id)}>  Send Message </Link> : null}
+                {ME._id === author._id ? <Link to="/InputForm" onClick={
+                  () => {sendMessageID(post._id) 
+                  setToEdit(true)}}>EDIT</Link> 
+                  :null}
+                {ME._id === author._id ? <button id="deleteButton" value={postIdentifier} onClick={(e)=> handleDelete(token, e.target.value) }>delete</button> :null}
               </div>
             );
           })

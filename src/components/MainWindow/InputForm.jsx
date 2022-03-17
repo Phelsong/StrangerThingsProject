@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { createPost } from "../../api";
+import {Redirect} from "react-router-dom"
+import { createPost, editPost } from "../../api";
 
-const InputForm = ({ token, allPosts, setAllPosts }) => {
-
+const InputForm = ({ token, allPosts, setAllPosts, toEdit, setToEdit, thisPost }) => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -20,31 +20,53 @@ const InputForm = ({ token, allPosts, setAllPosts }) => {
         location,
         deliver
       );
-      console.log(createNewPost);
+     
       const filteredPosts = allPosts.filter((post) => {return( post._id !== createNewPost._id)});
       const newPostArr = [...filteredPosts, createNewPost];
       setAllPosts(newPostArr);
   
   };
 
+  const handleEdit = async () => {
+    const myToken = localStorage.getItem("token");
+   
+    const edittedPost = await editPost(
+    myToken,
+    thisPost,
+    title,
+    description,
+    price,
+    location,
+    deliver
+  );
+  const filteredPosts = allPosts.filter((post) => {return( post._id !== edittedPost._id)});
+      const newPostArr = [...filteredPosts, edittedPost];
+      setAllPosts(newPostArr);
+      setToEdit(false)
+      
+  }
+
   return (
     <form
       id="SubmitForm"
       onSubmit={async (e) => {
         e.preventDefault();
-
-        try {
-          //write ternary for state token or local storage token
-
-           handleSubmit();
-          
+        if (toEdit){
+          { try {
+          handleEdit()
         } catch {
           console.error(e);
-        }
+        }}
+        } else { try {
+           handleSubmit();
+        } catch {
+          console.error(e);
+        }}
+
       }}
     >
-      <label htmlFor="SubmitForm"> Form </label>
-      <fieldset className="InputForm">
+      <label htmlFor="SubmitForm" className="submitFormLabel"> Form </label>
+      <fieldset className="inputForm">
         <input
           type="text"
           placeholder="Title"
@@ -60,7 +82,7 @@ const InputForm = ({ token, allPosts, setAllPosts }) => {
           onChange={(e) => setPrice(e.target.value)}
         />
       </fieldset>
-      <fieldset className="InputForm">
+      <fieldset className="inputForm">
         <input
           type="text"
           placeholder="Location"
@@ -68,7 +90,7 @@ const InputForm = ({ token, allPosts, setAllPosts }) => {
           onChange={(e) => setLocation(e.target.value)}
         />
       </fieldset>
-      <fieldset className="InputForm">
+      <fieldset className="inputForm">
         <input
           type="text"
           placeholder="Description"

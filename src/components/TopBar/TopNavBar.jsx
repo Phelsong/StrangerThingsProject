@@ -2,11 +2,11 @@ import React from "react"
 import ControlBar from "./ControlBar"
 import Account from "./Account"
 
-const TopNavBar = () => {
+const TopNavBar = ({ME}) => {
     return(
         <header className="topBar">
             <h2 className='logo'>Logo</h2>
-            <ControlBar />
+            <ControlBar ME={ME} />
             <Account />
         </header>
 )}

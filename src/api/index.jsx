@@ -116,3 +116,46 @@ export async function deletePost(myToken, postId) {
   const result = await response.json();
   return result.success
 }
+
+
+export async function sendMessage (myToken, postId, message) {
+  const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohortName}/posts/${postId}/messages`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${myToken}`
+    },
+    body: JSON.stringify({
+      message: {
+        content: `${message}`
+      }
+    })
+  })
+    const result = await response.json();
+    return result
+}
+
+
+export async function editPost (myToken, postId, title,
+  description,
+  price,
+  location,
+deliver) {
+  const response = await fetch(`https://strangers-things.herokuapp.com/api/${cohortName}/posts/${postId}`, {
+  method: "PATCH",
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${myToken}`
+  },
+  body: JSON.stringify({
+    post: {
+      title: `${title}`,
+      description: `${description}`,
+      price: `${price}`,
+      location: `${location}`,
+      willDeliver: `${deliver}`,
+    }})})
+  const result = await response.json();
+
+  return result.data.post;
+  }

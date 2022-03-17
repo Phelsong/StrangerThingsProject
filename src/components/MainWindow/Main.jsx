@@ -3,15 +3,19 @@ import RegisterUser from "./RegisterUser";
 import ListView from "./ListView";
 import InputForm from "./InputForm";
 import Login from "./Login";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import MessageForm from "./MessageForm";
+import { Routes, Route, Link } from "react-router-dom";
 import { getAllPosts, userMe} from "../../api";
 
-const Main = () => {
+const Main = ({ME, setMe}) => {
 const [token, setToken] = useState('')
 const [allPosts, setAllPosts]  = useState(null)
 const [displayPosts, setDisplayPosts] = useState(null)
-const [ME, setMe] = useState(null)
+const [thisPost, setThisPost] = useState(null)
+const [toEdit, setToEdit] = useState(false)
 
+
+// initial fetch
 useEffect(async () => {
     const myToken = localStorage.getItem('token')
     const thisIsMe = await userMe(myToken)
@@ -20,17 +24,14 @@ useEffect(async () => {
     //
     const contentPost = await getAllPosts();
     setAllPosts(contentPost.data.posts)
-    
-    // CONSOLE LOG HERE
-    console.log('new api call')
-   
    }, [] );  
-   useEffect(async () => {
-    console.log('re-render')
-    setDisplayPosts(allPosts)
-   
-   }, [allPosts] );  
 
+
+    // re-render whenever allPosts is updated
+   useEffect(async () => {
+    setDisplayPosts(allPosts)
+   }, [allPosts] );  
+  
    //*** Template ***/
 //    const postFiltering = async () => {
 //     const deletedPost = await deletePost(token, postId)
@@ -39,21 +40,18 @@ useEffect(async () => {
 //    //setDisplayPosts([])
 //  }
 
-  let urlRef = window.location.href.split("/").pop()
-  const Key = {
-     Login: <Login setToken={setToken}/>,
-      InputForm: < InputForm token={token} setAllPosts={setAllPosts} allPosts={allPosts} />,
-      RegisterUser: <RegisterUser setToken={setToken} /> ,
-      ListView:  < ListView token={token} allPosts={allPosts} displayPosts={displayPosts} setAllPosts={setAllPosts} ME={ME}/>,
-      
-  }
- 
+//   
+
     return (
         
         <div className="Main">
-            {/* doesnt do anything, revist later */}
-        {urlRef ? Key[urlRef]: Key[urlRef]}
-
+        <Routes>
+        <Route path="/InputForm" element={<InputForm token={token} setAllPosts={setAllPosts} allPosts={allPosts} setToEdit={setToEdit} toEdit={toEdit} thisPost={thisPost}/>} />
+        <Route path="/ListView" element={<ListView token={token} allPosts={allPosts} displayPosts={displayPosts} setAllPosts={setAllPosts} ME={ME} setThisPost={setThisPost} thisPost={thisPost} setToEdit={setToEdit}/>} />
+        <Route path="/Login" element={<Login setToken={setToken} />} />
+        <Route path="/RegisterUser" element={<RegisterUser setToken={setToken}/>} />
+        <Route path="/MessageForm" element={<MessageForm token={token} thisPost={thisPost} />} />
+        </Routes>
         </div>
     );
 
@@ -65,4 +63,13 @@ export { default as RegisterUser} from "./RegisterUser";
 export { default as ListView } from "./ListView";
 export { default as InputForm } from "./InputForm";
 export { default as Login } from "./Login";
-// ; useEffect(() => { }, [])
+// ; useEffect(() => { }, [])let urlRef = window.location.href.split("/").pop()
+
+
+//   const Key = {
+//      Login: <Login />,
+//       InputForm: < InputForm  />,
+//       RegisterUser: <RegisterUser  /> ,
+//       ListView:  < ListView token={token} allPosts={allPosts} displayPosts={displayPosts} setAllPosts={setAllPosts} ME={ME}/>,
+      
+//   }{/* {urlRef ? Key[urlRef]: Key[urlRef]} */}
