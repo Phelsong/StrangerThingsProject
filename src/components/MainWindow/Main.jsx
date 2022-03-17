@@ -4,7 +4,7 @@ import ListView from "./ListView";
 import InputForm from "./InputForm";
 import Login from "./Login";
 import MessageForm from "./MessageForm";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Redirect } from "react-router-dom";
 import { getAllPosts, userMe} from "../../api";
 
 const Main = ({ME, setMe}) => {
@@ -18,13 +18,14 @@ const [toEdit, setToEdit] = useState(false)
 // initial fetch
 useEffect(async () => {
     const myToken = localStorage.getItem('token')
+    if (myToken){
     const thisIsMe = await userMe(myToken)
     setToken(myToken)
-    setMe(thisIsMe.data)
+    setMe(thisIsMe.data)}
     //
     const contentPost = await getAllPosts();
     setAllPosts(contentPost.data.posts)
-   }, [] );  
+   }, [token] );  
 
 
     // re-render whenever allPosts is updated
@@ -46,6 +47,7 @@ useEffect(async () => {
         
         <div className="Main">
         <Routes>
+        <Route path="*" element={< ListView/>}> </Route>
         <Route path="/InputForm" element={<InputForm token={token} setAllPosts={setAllPosts} allPosts={allPosts} setToEdit={setToEdit} toEdit={toEdit} thisPost={thisPost}/>} />
         <Route path="/ListView" element={<ListView token={token} allPosts={allPosts} displayPosts={displayPosts} setAllPosts={setAllPosts} ME={ME} setThisPost={setThisPost} thisPost={thisPost} setToEdit={setToEdit}/>} />
         <Route path="/Login" element={<Login setToken={setToken} />} />

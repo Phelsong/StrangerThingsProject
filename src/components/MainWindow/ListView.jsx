@@ -6,7 +6,7 @@ import {Button} from "react"
 //
 const ListView = ({ token, displayPosts, allPosts, setAllPosts, ME, setThisPost, setToEdit }) => {
 
-  
+
   const handleDelete = async (token, postIdentifier) => {
 
     const [postId, authorId] = postIdentifier.split(',')
@@ -49,12 +49,12 @@ const ListView = ({ token, displayPosts, allPosts, setAllPosts, ME, setThisPost,
                     <h5>Delivery: {willDeliver.toString()}</h5>
                   </li>
                 </ul>
-                {ME ? <Link to="/MessageForm" onClick={() => sendMessageID(post._id)}>  Send Message </Link> : null}
-                {ME._id === author._id ? <Link to="/InputForm" onClick={
+                {ME ? <Link to="/MessageForm" onClick={() => sendMessageID(post._id)}>  Send Message </Link>: null}
+                {ME && ME._id === author._id ? <Link to="/InputForm" onClick={
                   () => {sendMessageID(post._id) 
                   setToEdit(true)}}>EDIT</Link> 
                   :null}
-                {ME._id === author._id ? <button id="deleteButton" value={postIdentifier} onClick={(e)=> handleDelete(token, e.target.value) }>delete</button> :null}
+                {ME && ME._id === author._id ? <button id="deleteButton" value={postIdentifier} onClick={(e)=> handleDelete(token, e.target.value) }>delete</button> :null}
               </div>
             );
           })

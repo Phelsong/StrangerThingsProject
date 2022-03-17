@@ -24,6 +24,7 @@ const Login = ({setToken}) => {
           const result = await userLogin (inputUser, inputPass);
           localStorage.setItem('token', result.data.token)
           setToken(result.data.token)
+      
           } catch {console.error(e)}
         }}
       >
