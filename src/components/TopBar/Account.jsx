@@ -4,7 +4,9 @@ const Account = ()=>{
 
     return(
         <div id='Account'> 
-        <Link to="/Login"> Login/Account </Link> 
+        <Link to="/Login" > <i class="bi bi-file-person"></i> </Link> 
         </div>
     )}
 export default Account
+
+// className="btn btn-outline-secondary"

@@ -65,12 +65,12 @@ const InputForm = ({ token, allPosts, setAllPosts, toEdit, setToEdit, thisPost }
 
       }}
     >
-      <label htmlFor="SubmitForm" className="submitFormLabel"> Form </label>
-      <fieldset className="inputForm">
+      <label htmlFor="SubmitForm" className="submitFormLabel display-6"> Form </label>
+      <fieldset  class="inputForm ">
         <input
           type="text"
           placeholder="Title"
-          className="inputFormPost"
+          className="inputFormPost form-control"
           onChange={(e) => setTitle(e.target.value)}
         />
       </fieldset>
@@ -78,15 +78,15 @@ const InputForm = ({ token, allPosts, setAllPosts, toEdit, setToEdit, thisPost }
         <input
           type="text"
           placeholder="Price"
-          className="inputFormPost"
+          className="inputFormPost form-control"
           onChange={(e) => setPrice(e.target.value)}
         />
       </fieldset>
-      <fieldset className="inputForm">
+      <fieldset className="inputForm ">
         <input
           type="text"
           placeholder="Location"
-          className="inputFormPost"
+          className="inputFormPost form-control"
           onChange={(e) => setLocation(e.target.value)}
         />
       </fieldset>
@@ -94,11 +94,11 @@ const InputForm = ({ token, allPosts, setAllPosts, toEdit, setToEdit, thisPost }
         <input
           type="text"
           placeholder="Description"
-          className="inputFormPost"
+          className="inputFormPost form-control"
           onChange={(e) => setDescription(e.target.value)}
         />
       </fieldset>
-      <button>Submit</button>
+      <button className="btn btn-secondary">Submit</button>
     </form>
   );
 };

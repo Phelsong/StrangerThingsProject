@@ -33,8 +33,12 @@ const ListView = ({ token, displayPosts, allPosts, setAllPosts, ME, setThisPost,
             const postIdentifier = [post._id, author._id, '[0]=postid :: [1]=authorid']
             return (
               <div className="singlepost" key={post._id}>
+                <div className="singlePostTitle">
                 <h2>{title}</h2>
                 <span>{description}</span>
+               </div>
+                <div className="singlePostContent">
+                
                 <ul>
                   <li>
                     <h5>Price: {price}</h5>
@@ -49,12 +53,15 @@ const ListView = ({ token, displayPosts, allPosts, setAllPosts, ME, setThisPost,
                     <h5>Delivery: {willDeliver.toString()}</h5>
                   </li>
                 </ul>
-                {ME ? <Link to="/MessageForm" onClick={() => sendMessageID(post._id)}>  Send Message </Link>: null}
+                <div className="controlStrip">
+                {ME ? <Link to="/MessageForm" onClick={() => sendMessageID(post._id)}><button className="postButton btn btn-outline-info"> <i className="mainClickables bi bi-chat"></i> </button></Link>: null}
                 {ME && ME._id === author._id ? <Link to="/InputForm" onClick={
                   () => {sendMessageID(post._id) 
-                  setToEdit(true)}}>EDIT</Link> 
+                  setToEdit(true)}}><button className="postButton btn btn-outline-info"><i className="mainClickables bi bi-pen"></i></button></Link> 
                   :null}
-                {ME && ME._id === author._id ? <button id="deleteButton" value={postIdentifier} onClick={(e)=> handleDelete(token, e.target.value) }>delete</button> :null}
+                {ME && ME._id === author._id ? <button id="deleteButton" className="postButton btn btn-outline-info" value={postIdentifier} onClick={(e)=> handleDelete(token, e.target.value)}> <i className="mainClickables bi bi-trash"> </i> </button> :null}
+                </div>
+                </div>
               </div>
             );
           })
