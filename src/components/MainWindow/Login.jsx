@@ -28,7 +28,7 @@ const Login = ({setToken}) => {
           } catch {console.error(e)}
         }}
       >
-        <label htmlFor="Login"> Log-In </label>
+        <label htmlFor="Login"className="submitFormLabel display-6"> Log-In </label>
         <Link to="/RegisterUser"> Register as a User </Link>
         <fieldset className="login">
           <input
@@ -46,7 +46,7 @@ const Login = ({setToken}) => {
             onChange={(e) => setInputPass(e.target.value)}
           />
         </fieldset>
-        <button type="submit">Submit</button>
+        <button className="btn btn-secondary">Submit</button>
       </form>
 
   );

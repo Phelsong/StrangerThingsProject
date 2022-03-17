@@ -236,12 +236,14 @@ body{
 .register {
     width: 50%;
     height: 20%;
-    background-color: blue;
+   justify-content: center;
+   align-content: center;
 }
 
 .userName {
     width: 100%;
     height: 100%;
+    justify-content: center;
     font-size: 15pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -253,9 +255,15 @@ body{
 }
 
 .registerForm button {
-    width: 15%;
-    height: 5%;
-    /* background-color:gold; */
+    width: 30%;
+    height: 10%;
+    margin-top: 2%;
+    background-color: rgb(37, 156, 130);
+    justify-content: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18pt;
+    text-shadow: .2px .2px 4px rgba(0, 0, 0, 0.548);
+    box-shadow: 1px 1px 3px rgba(121, 121, 121, 0.836);
 }
 /* Register End */
 
@@ -265,15 +273,14 @@ body{
     height: 80%;
     flex-flow: column nowrap;
     align-items: center;
-    border: 1px solid black;
 }
 .loginForm a {
-    width: 23%;
-    height: 7%;
+    width: 30%;
+    height: 10%;
     font-size: 14pt;
 }
 .loginForm label {
-    width: 15%;
+    width: 20%;
     height: 10%;
     font-size: 27pt;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -281,7 +288,6 @@ body{
 .login {
     width: 50%;
     height: 20%;
-    /* background-color: blue; */
 }
 
 .userName {
@@ -296,13 +302,15 @@ body{
 }
 
 .loginForm button {
-    width: 20%;
-    height: 5%;
+    width: 30%;
+    height: 10%;
+    margin-top: 2%;
+    background-color: rgb(37, 156, 130);
     justify-content: center;
-    margin-top: 1%;
-    /* background-color: gold; */
-    font-size: 15pt;
-    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18pt;
+    text-shadow: .2px .2px 4px rgba(0, 0, 0, 0.548);
+    box-shadow: 1px 1px 3px rgba(121, 121, 121, 0.836);
 }
 /* login End */
 

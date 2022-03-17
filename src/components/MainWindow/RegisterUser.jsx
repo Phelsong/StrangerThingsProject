@@ -20,7 +20,7 @@ const RegisterUser = ({setToken}) => {
           }
         }}
       >
-        <label htmlFor="SignUp"> SignUp </label>
+        <label htmlFor="SignUp"className="submitFormLabel display-6"> SignUp </label>
        
         <fieldset className="register">
           <input
@@ -38,7 +38,7 @@ const RegisterUser = ({setToken}) => {
             onChange={(e) => setInputPass(e.target.value)}
           />
         </fieldset>
-        <button type="submit">Submit</button>
+        <button className="btn btn-secondary">Submit</button>
       </form>
   );
 };
