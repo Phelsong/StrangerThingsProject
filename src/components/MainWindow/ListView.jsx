@@ -1,11 +1,11 @@
 import React from "react";
-import{Link} from "react-router-dom"
+import{Link, useNavigate} from "react-router-dom"
 import { useState, useEffect } from "react";
 import { deletePost } from "../../api";
 import {Button} from "react"
 //
 const ListView = ({ token, displayPosts, allPosts, setAllPosts, ME, setThisPost, setToEdit }) => {
-
+  const navigateTo = useNavigate()
 
   const handleDelete = async (token, postIdentifier) => {
     console.log(postIdentifier)
