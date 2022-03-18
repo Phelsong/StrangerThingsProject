@@ -8,8 +8,8 @@ const ListView = ({ token, displayPosts, allPosts, setAllPosts, ME, setThisPost,
 
 
   const handleDelete = async (token, postIdentifier) => {
-
-    const [postId, authorId] = postIdentifier.split(',')
+    console.log(postIdentifier)
+      const [postId, authorId] = postIdentifier.split(',')
  
       if (authorId !== ME._id ){
         console.error('not your post')
@@ -59,7 +59,7 @@ const ListView = ({ token, displayPosts, allPosts, setAllPosts, ME, setThisPost,
                   () => {sendMessageID(post._id) 
                   setToEdit(true)}}><button className="postButton btn btn-outline-info"><i className="mainClickables bi bi-pen"></i></button></Link> 
                   :null}
-                {ME && ME._id === author._id ? <button id="deleteButton" className="postButton btn btn-outline-info" value={postIdentifier} onClick={(e)=> handleDelete(token, e.target.value)}> <i className="mainClickables bi bi-trash"> </i> </button> :null}
+                {ME && ME._id === author._id ? <button id="deleteButton" className="postButton btn btn-outline-info" value={postIdentifier} onClick={(e)=> handleDelete(token, e.target.parentElement.value)}> <i className="mainClickables bi bi-trash"  > </i> </button> :null}
                 </div>
                 </div>
               </div>

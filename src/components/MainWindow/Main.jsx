@@ -1,10 +1,11 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState } from "react";
 import RegisterUser from "./RegisterUser";
 import ListView from "./ListView";
 import InputForm from "./InputForm";
 import Login from "./Login";
 import MessageForm from "./MessageForm";
-import { Routes, Route, Link, Redirect } from "react-router-dom";
+import SearchBar from "./SearchBar";
+import { Routes, Route} from "react-router-dom";
 import { getAllPosts, userMe} from "../../api";
 
 const Main = ({ME, setMe, setThisPost, thisPost}) => {
@@ -53,6 +54,7 @@ useEffect(async () => {
         <Route path="/Login" element={<Login setToken={setToken} />} />
         <Route path="/RegisterUser" element={<RegisterUser setToken={setToken}/>} />
         <Route path="/MessageForm" element={<MessageForm token={token} thisPost={thisPost} />} />
+        <Route path="SearchBar" element={<SearchBar allPosts={allPosts} setDisplayPosts={setDisplayPosts}/>} />
         </Routes>
         </div>
     );

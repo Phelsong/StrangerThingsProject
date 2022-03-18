@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Redirect} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import { createPost, editPost } from "../../api";
 
 const InputForm = ({ token, allPosts, setAllPosts, toEdit, setToEdit, thisPost }) => {
@@ -8,6 +8,8 @@ const InputForm = ({ token, allPosts, setAllPosts, toEdit, setToEdit, thisPost }
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
   const [deliver, setDeliver] = useState(false);
+  const navigateTo = useNavigate()
+
 
   const handleSubmit = async () => {
     const myToken = localStorage.getItem("token");
@@ -29,7 +31,7 @@ const InputForm = ({ token, allPosts, setAllPosts, toEdit, setToEdit, thisPost }
 
   const handleEdit = async () => {
     const myToken = localStorage.getItem("token");
-   
+   try{
     const edittedPost = await editPost(
     myToken,
     thisPost,
@@ -42,7 +44,9 @@ const InputForm = ({ token, allPosts, setAllPosts, toEdit, setToEdit, thisPost }
   const filteredPosts = allPosts.filter((post) => {return( post._id !== edittedPost._id)});
       const newPostArr = [...filteredPosts, edittedPost];
       setAllPosts(newPostArr);
-      setToEdit(false)
+      setToEdit(false)}
+      catch{console.error}
+      finally {navigateTo("/ListView")}
       
   }
 
@@ -62,11 +66,12 @@ const InputForm = ({ token, allPosts, setAllPosts, toEdit, setToEdit, thisPost }
         } catch {
           console.error(e);
         }}
+       e.target.reset()
 
       }}
     >
       <label htmlFor="SubmitForm" className="submitFormLabel display-6"> Form </label>
-      <fieldset  class="inputForm ">
+      <fieldset  className="inputForm ">
         <input
           type="text"
           placeholder="Title"
@@ -98,7 +103,7 @@ const InputForm = ({ token, allPosts, setAllPosts, toEdit, setToEdit, thisPost }
           onChange={(e) => setDescription(e.target.value)}
         />
       </fieldset>
-      <button className="btn btn-secondary">Submit</button>
+      <button className="btn btn-secondary" >Submit</button>
     </form>
   );
 };

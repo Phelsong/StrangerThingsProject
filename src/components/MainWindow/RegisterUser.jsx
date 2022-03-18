@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom"
 import { registerNewUser } from "../../api";
 
 const RegisterUser = ({setToken}) => {
   const [inputUser, setInputUser] = useState("");
   const [inputPass, setInputPass] = useState("");
+  const navigateTo = useNavigate()
 
   return (
       <form
@@ -18,6 +20,7 @@ const RegisterUser = ({setToken}) => {
           } catch {
             console.error(e)
           }
+          finally {navigateTo("/ListView")}
         }}
       >
         <label htmlFor="SignUp"className="submitFormLabel display-6"> SignUp </label>

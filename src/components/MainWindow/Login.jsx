@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { userLogin } from "../../api";
 
 //test login 
@@ -9,7 +9,7 @@ import { userLogin } from "../../api";
 
 
 const Login = ({setToken}) => {
-
+const navigateTo = useNavigate()
   const [inputUser, setInputUser] = useState("");
   const [inputPass, setInputPass] = useState("");
  
@@ -24,8 +24,9 @@ const Login = ({setToken}) => {
           const result = await userLogin (inputUser, inputPass);
           localStorage.setItem('token', result.data.token)
           setToken(result.data.token)
-      
           } catch {console.error(e)}
+          finally {navigateTo("/ListView")}
+          
         }}
       >
         <label htmlFor="Login"className="submitFormLabel display-6"> Log-In </label>

@@ -3,7 +3,7 @@ import {sendMessage} from "../../api";
 
 const MessageForm = ({token, thisPost}) => {
   const [message, setMessage] = useState("");
-
+  const navigateTo = useNavigate()
 
   return (
     <form
@@ -13,8 +13,9 @@ const MessageForm = ({token, thisPost}) => {
         sendMessage(token, thisPost, message) 
         try {
         } catch {
-          console.error(e);
+          console.error(e); 
         }
+        finally {navigateTo("/ListView")}
       }}
     >
       <label htmlFor="SubmitForm" className="submitFormLabel display-6">
