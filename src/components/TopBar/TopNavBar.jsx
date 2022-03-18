@@ -5,7 +5,7 @@ import Account from "./Account"
 const TopNavBar = ({ME}) => {
     return(
         <header className="topBar">
-            <h2 className='logo'>Logo</h2>
+          <div className='logo'>  <i className="bi bi-person-lines-fill"> </i> Stranger's Things</div>
             <ControlBar ME={ME} />
             <Account />
         </header>

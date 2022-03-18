@@ -32,12 +32,12 @@ const ListView = ({ token, displayPosts, allPosts, setAllPosts, ME, setThisPost,
             const { title, price, description, location, willDeliver, author } = post;
             const postIdentifier = [post._id, author._id, '[0]=postid :: [1]=authorid']
             return (
-              <div className="singlepost" key={post._id}>
+              <div className="singlepost card-body card w-75 bg-white" key={post._id}>
                 <div className="singlePostTitle">
-                <h2>{title}</h2>
-                <span>{description}</span>
+                <h2 className="card-title">{title}</h2>
+                <span className="card-text">{description}</span>
                </div>
-                <div className="singlePostContent">
+                <div className="singlePostContent card-body">
                 
                 <ul>
                   <li>

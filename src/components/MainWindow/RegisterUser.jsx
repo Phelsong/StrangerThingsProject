@@ -7,7 +7,7 @@ const RegisterUser = ({setToken}) => {
 
   return (
       <form
-        className="registerForm"
+        className="loginForm"
         onSubmit={(e) => {
           e.preventDefault();
           try{
@@ -22,19 +22,19 @@ const RegisterUser = ({setToken}) => {
       >
         <label htmlFor="SignUp"className="submitFormLabel display-6"> SignUp </label>
        
-        <fieldset className="register">
+        <fieldset className="login">
           <input
             type="text"
             placeholder="Username..."
-            className="userName"
+            className="userName form-control"
             onChange={(e) => setInputUser(e.target.value)}
           />
         </fieldset>
-        <fieldset className="register">
+        <fieldset className="login">
           <input
             type="password"
             placeholder="Password Here..."
-            className="password"
+            className="password form-control"
             onChange={(e) => setInputPass(e.target.value)}
           />
         </fieldset>

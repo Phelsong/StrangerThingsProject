@@ -5,12 +5,12 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 
 
-const SideBar = ({ME}) => {
+const SideBar = ({ME, thisPost, setThisPost}) => {
 
     return (
 <div className="sideBar">
 <SearchBar />
-{ME ? <MyMessages ME={ME} /> : null}
+{ME ? <MyMessages ME={ME} thisPost={thisPost} setThisPost={setThisPost} /> : null}
 
 
 

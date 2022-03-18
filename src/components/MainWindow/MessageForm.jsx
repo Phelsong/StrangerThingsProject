@@ -17,7 +17,7 @@ const MessageForm = ({token, thisPost}) => {
         }
       }}
     >
-      <label htmlFor="SubmitForm" className="submitFormLabel">
+      <label htmlFor="SubmitForm" className="submitFormLabel display-6">
         {" "}
         Form{" "}
       </label>    
@@ -25,11 +25,11 @@ const MessageForm = ({token, thisPost}) => {
         <input
           type="text"
           placeholder="message....."
-          className="inputFormPost"
+          className="inputFormPost form-control"
           onChange={(e) => setMessage(e.target.value)}
         />
       </fieldset>
-      <button>Submit</button>
+      <button className="btn btn-secondary">Submit</button>
     </form>
   );
 };

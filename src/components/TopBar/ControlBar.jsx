@@ -6,7 +6,7 @@ const ControlBar = ({ME}) => {
     return (
         <div id="controlBar">
             
-            {ME ? <Link to="/InputForm" > <i className="controlBarIcon bi bi-plus-square"> </i> </Link> : null}
+            {ME ? <Link to="/InputForm" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Submit Post" > <i className="controlBarIcon bi bi-plus-square"> </i> </Link> : null}
             <Link to="/ListView"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="List View"> 
             
             <i className="controlBarIcon bi bi-layout-text-window" ></i> 

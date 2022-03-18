@@ -4,9 +4,9 @@ const SearchBar = () => {
 
     return (
 <div className="mainSearch">
-   <label htmlFor="site-search"> Search </label>
-   <input type="search" placeholder="Search Here..." id="sbSearchField" />
-   <button> Submit </button>
+   
+   <input type="search" placeholder="Search Here..." id="sbSearchField" className="form-control" />
+   <button className="postButton btn btn-outline-info bg-white"> Submit </button>
 </div>
     )}
 

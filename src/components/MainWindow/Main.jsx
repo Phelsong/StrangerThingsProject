@@ -7,11 +7,11 @@ import MessageForm from "./MessageForm";
 import { Routes, Route, Link, Redirect } from "react-router-dom";
 import { getAllPosts, userMe} from "../../api";
 
-const Main = ({ME, setMe}) => {
+const Main = ({ME, setMe, setThisPost, thisPost}) => {
 const [token, setToken] = useState('')
 const [allPosts, setAllPosts]  = useState(null)
 const [displayPosts, setDisplayPosts] = useState(null)
-const [thisPost, setThisPost] = useState(null)
+
 const [toEdit, setToEdit] = useState(false)
 
 

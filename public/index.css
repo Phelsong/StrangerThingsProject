@@ -1,17 +1,12 @@
 /* <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" /> to your <head>) */
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
-* {
+
+body * {
     display: flex;
     box-sizing: border-box;
     width: 98vw;
     height: 100vh;
     margin: 0;
-}
-
-head {
-    display: none;
-}
-body{
     background-color: rgb(255, 248, 238);
 }
 
@@ -29,23 +24,36 @@ body{
 .topBar {
     width: 76%;
     height: 5rem;
-    border: 2px solid rgb(8, 8, 8);
-
     align-items: center;
     justify-content: center;
     top: 0;
     position: absolute;
-    background-color:whitesmoke;
+    
 }
 
 .topBar .logo {
-    width: 10%;
+    width: 25%;
     height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-flow: column nowrap;
+    flex: 1;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+.logo i {
+    width: 100%;
+    height: 60%;
+    font-size: 3rem;
+    align-items: center;
+    justify-content: center;
+    margin: 3% 0 0 0;
+}
+
+
 .topBar #controlBar {
-    width: 70%;
+    width: 60%;
     height: 100%;
     align-items: center;
     justify-content: center;
@@ -129,12 +137,20 @@ body{
     width: 90%;
     height: 35%;
     flex-flow: row nowrap;
-    margin: .2%;
-    border: 3px solid rgb(14, 13, 13);
+    margin: 1%;
+    border: 1px solid rgb(14, 13, 13);
     align-items: center;
     justify-content: center;
+    box-shadow: .2px .2px 3px rgb(153, 153, 153);
     
 }
+.singlepost:hover  {
+    box-shadow: .2px .2px 4px rgb(99, 99, 99);
+}
+.singlepost * {
+    background-color:white
+}
+
 .singlePostTitle{
     height:100%;
     width:60%;
@@ -145,7 +161,7 @@ body{
 .singlePostTitle h2 {
     height:20%;
     width:100%;
-
+    font-size:x-large;
     align-items: center;
     justify-content: center;
 }
@@ -213,58 +229,29 @@ body{
     height: 100%;
     justify-content: center;
     align-items:center;
-    color: rgb(26, 170, 163)}
+    color: rgb(26, 170, 163);
+    background-color: unset;
+};
+   
 
 /* ListView Area End*/
 
 
 /* Register Start */
-.registerForm {
-    width: 80%;
-    height: 80%;
-    flex-flow: column nowrap;
-    align-items: center;
-}
-.registerForm label {
-    width: 10%;
-    height: 10%;
-    font-size: 22pt;
-    justify-content: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: bold;
-}
-.register {
-    width: 50%;
-    height: 20%;
-   justify-content: center;
-   align-content: center;
-}
 
 .userName {
     width: 100%;
     height: 100%;
-    justify-content: center;
-    font-size: 15pt;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+
+  
 }
 .password {
     width: 100%;
     height: 100%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 15pt;
+
 }
 
-.registerForm button {
-    width: 30%;
-    height: 10%;
-    margin-top: 2%;
-    background-color: rgb(37, 156, 130);
-    justify-content: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 18pt;
-    text-shadow: .2px .2px 4px rgba(0, 0, 0, 0.548);
-    box-shadow: 1px 1px 3px rgba(121, 121, 121, 0.836);
-}
+
 /* Register End */
 
 /* login Start */
@@ -278,16 +265,17 @@ body{
     width: 30%;
     height: 10%;
     font-size: 14pt;
+    text-decoration: none;
+    justify-content: center;
 }
 .loginForm label {
     width: 20%;
     height: 10%;
-    font-size: 27pt;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .login {
     width: 50%;
-    height: 20%;
+    height: 15%;
+    margin: 1%;
 }
 
 .userName {
@@ -380,6 +368,7 @@ box-shadow: 1px 1px 5px rgb(78, 78, 78);
 #messageForm button {
     width: 20%;
     height: 10%;
+    background-color: rgb(37, 156, 130);
 }
 
 
@@ -397,80 +386,83 @@ box-shadow: 1px 1px 5px rgb(78, 78, 78);
 }
 
 .sideBar .mainSearch {
-    margin: 5px;
+    margin: 1%;
     width: 100%;
-    height: 20%;
-
-    flex-flow: column nowrap;
-   
-}
-.sideBar .mainSearch {
-    width: 100%;
-    height: 20%;
-
-border: 3px solid black;
-flex-flow: column no wrap;
-align-items: center;
-}
-.sideBar .mainSearch label {
-    width: 50%;
     height: 10%;
-    margin-bottom: 7%;
-    font-size: 20pt;
-    font-weight: bold;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center
 }
+
 .sideBar .mainSearch input {
-    width: 100%;
-    height: 30%;
+    width: 80%;
+    height: 50%;
     background-color: aliceblue;
-    margin-bottom: 1%;
+    margin-bottom: 5%;
 }
 .sideBar .mainSearch button {
-    width: 50%;
-    height: 15%;
+    width: 40%;
+    height: 30%;
+    font-size: 1rem;
     text-align: center;
-    background-color: rgb(173, 172, 172);
-    border: 1px solid black;
-    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .sideBar .myMessages {
-    margin: 5px;
+    margin: .2%;
     width: 100%;
-    height: 90%;
-   
-    flex-flow: column nowrap;
-    overflow-y: scroll;
-}
-.messageInInbox {
-    width: 100%;
-    height: 40%;
+    height: 78%;
     align-items: center;
     justify-content: center;
     flex-flow: column nowrap;
+    overflow-y: scroll;
+   
 }
+.myMessages h3 {
+    width: 60%;
+    height: 5%;
+    font-size: 1rem;
+    justify-content: center;
+    margin: 5% 0 0 0;
+}
+.messageInInbox {
+    width: 100%;
+    height: 30%;
+    margin: 1%;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    flex: 1;
+    box-shadow: .2px .2px 3px rgb(153, 153, 153);
+}
+.messageInInbox:hover  {
+    box-shadow: .2px .2px 4px rgb(99, 99, 99);}
 .messageInInbox h2{
-    width: 10%;
-    height: 10%;
+    width: 100%;
+    height: 20%;
+    font-size: 1rem;
 }
 .messageInInbox span{
-    width: 10%;
-    height: 10%;
-}
-.messageInInbox ul{
     width: 100%;
-    height: 80%;
-    flex-flow: column nowrap;
+    height: 50%;
 }
-.messageInInbox ul li {
-    width: 100%;
-    height: 10%;
+.messageInInbox a {
+    width: 30%;
+    height: 15%;
+    text-decoration: none;
 }
-.messageInInbox ul li h5{
+.messageInInbox .postButton{
     width: 100%;
-    height: 10%;
+    height: 100%;
+    background-color:white;
 }
 
-
+.messageInInbox .mainClickables {
+    width:100%;
+    height: 100%;
+    background-color:unset;
+}
 
 /* SideBar App Area End*/

@@ -29,12 +29,12 @@ const Login = ({setToken}) => {
         }}
       >
         <label htmlFor="Login"className="submitFormLabel display-6"> Log-In </label>
-        <Link to="/RegisterUser"> Register as a User </Link>
+        <Link to="/RegisterUser" data-bs-toggle="tooltip" data-bs-placement="bottom"> Register as a User </Link>
         <fieldset className="login">
           <input
             type="text"
             placeholder="Username..."
-            className="userName"
+            className="userName form-control"
             onChange={(e) => setInputUser(e.target.value)}
           />
         </fieldset>
@@ -42,7 +42,7 @@ const Login = ({setToken}) => {
           <input
             type="password"
             placeholder="Password Here..."
-            className="password"
+            className="password form-control"
             onChange={(e) => setInputPass(e.target.value)}
           />
         </fieldset>
